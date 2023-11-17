@@ -1,0 +1,18 @@
+{ 
+ "channel_names": { 
+   "0": "T1N", 
+   "2": "T1C", 
+   "3": "T2W", 
+   "4": "T2F"
+ }, 
+ "labels": {  
+   "background": 0,
+   "NCR": 1,
+   "ED": 2,
+   "ET": 3
+ }, 
+ "numTraining": 1063, 
+ "file_ending": ".nii.gz",
+ "overwrite_image_reader_writer": "SimpleITKIO" 
+ 
+ }
