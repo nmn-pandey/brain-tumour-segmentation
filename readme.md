@@ -2,7 +2,7 @@
 
 This repository contains the code implementation of my Master's dissertation project at Brunel University London. The project focuses on developing advanced methods for automated segmentation of brain tumors from multimodal MRI scans by integrating modern mechanisms like Attention, Multi-Objective Losses and Swin Transformers into the traditional convolutional neural networks (CNNs) based U-Net architecture. Key challenges addressed include localizing indistinct tumor boundaries, handling class imbalances in medical datasets, and efficiently capturing global context. This work integrates attention mechanisms, multi-scale deep supervision, multi-objective loss functions, and Swin-Transformers into CNN-based architectures.
 
-In this README file, we provide an overview and explanation of the code and models developed for this project. However, for a comprehensive understanding of the methodologies, theories, and detailed analysis, we highly recommend referring to the code overview section below and the comments in the code itself. If you require further help, please feel free to contact me. 
+In this README file, we provide an overview and explanation of the code and models developed for this project. For a comprehensive understanding of the methodologies, theories, and detailed analysis, we highly recommend referring to the code overview section at the end of this file and the comments in the code itself. If you require further help or would like to take this study forward, I would be pleased to support you.
 
 ### Dataset
 The Brain Tumor Segmentation (BraTS) 2023 dataset with T1, T1-contrasted, T2, and FLAIR MRI scans, including expert annotations for 1251 cases.
@@ -72,7 +72,7 @@ All models struggled in some cases, especially those with low contrast, failing 
 ### Contributions:
 This work contributes to the field of medical image analysis by demonstrating the effective integration of contemporary techniques in CNN architectures for brain tumor segmentation. It highlights the potential and limitations of these approaches, providing a foundation for future research and development in automated medical image segmentation.
 
-## HOW TO USE/UNDERSTAND THE CODE
+## Code Overview
 The below section provides an overview of my dissertation project, "Enhancing Brain Tumor Segmentation in Multimodal MRI Scans," and serves as a guide for the attached source code. This folder contains project code, a sampled dataset, and related resources for a medical image segmentation project employing various deep learning models. Below, you'll find detailed information about the contents of the `src` folder, the structure of the `data` folder, and the `saved_models` folder.
 
 ## Contents of the `src` Folder
