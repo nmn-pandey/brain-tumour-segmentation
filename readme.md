@@ -6,11 +6,17 @@ In this README file, we provide an overview and explanation of the code and mode
 
 ### Dataset
 The Brain Tumor Segmentation (BraTS) 2023 dataset with T1, T1-contrasted, T2, and FLAIR MRI scans, including expert annotations for 1251 cases.
+![image](https://github.com/nmn-pandey/brain-tumour-segmentation/assets/20767834/0def1930-8d01-449b-a939-26f9657e5325)
 
 ### Model Architectures
-1. **AR2B-UNet**: A 3D UNet Model enhanced with Attention Blocks. This architecture is designed to improve the segmentation accuracy by focusing on relevant features in the MRI scans.![AR2B-UNet-1](https://github.com/nmn-pandey/brain-tumour-segmentation/assets/20767834/0bef9e31-ba8b-456c-ab8b-04dd92edf555)
-2. **AR2B-DeepSup-UNet**: An extension of the base model (AR2B-UNet) enhanced with Deep Supervision. Deep Supervision facilitates the training of deeper networks by addressing the vanishing gradient problem and improving feature learning at multiple levels.![AR2B-DeepSup-UNet-1](https://github.com/nmn-pandey/brain-tumour-segmentation/assets/20767834/a3704f28-0838-43f2-a9ec-a1d7e693a8b3)
-3. **Swin-AR2B-DeepSup-UNet**: This model integrates Swin Transformers into the UNet Encoder. The Swin Transformer is designed to capture global context more effectively, which is crucial for accurate segmentation in complex medical images like MRI scans.![Swin-AR2B-DeepSup-UNet-1](https://github.com/nmn-pandey/brain-tumour-segmentation/assets/20767834/ce26905f-3bb5-4f0e-b2f6-d0c9c97c9e14)
+1. **AR2B-UNet**: A 3D UNet Model enhanced with Attention Blocks. This architecture is designed to improve the segmentation accuracy by focusing on relevant features in the MRI scans.  
+![AR2B-UNet-1](https://github.com/nmn-pandey/brain-tumour-segmentation/assets/20767834/0bef9e31-ba8b-456c-ab8b-04dd92edf555)
+
+2. **AR2B-DeepSup-UNet**: An extension of the base model (AR2B-UNet) enhanced with Deep Supervision. Deep Supervision facilitates the training of deeper networks by addressing the vanishing gradient problem and improving feature learning at multiple levels.
+![AR2B-DeepSup-UNet-1](https://github.com/nmn-pandey/brain-tumour-segmentation/assets/20767834/a3704f28-0838-43f2-a9ec-a1d7e693a8b3)
+
+3. **Swin-AR2B-DeepSup-UNet**: This model integrates Swin Transformers into the UNet Encoder. The Swin Transformer is designed to capture global context more effectively, which is crucial for accurate segmentation in complex medical images like MRI scans.
+![Swin-AR2B-DeepSup-UNet-1](https://github.com/nmn-pandey/brain-tumour-segmentation/assets/20767834/ce26905f-3bb5-4f0e-b2f6-d0c9c97c9e14)
 
 ### Key Architectural Blocks
 1. Convolutional, and Feature Refinement Blocks to extract hierarchical features from the input.
