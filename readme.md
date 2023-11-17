@@ -8,21 +8,56 @@ This repository contains the code implementation of my Master's dissertation pro
 
 **Model Architectures:**
 1. **AR2B-UNet**: A 3D UNet Model enhanced with Attention Blocks. This architecture is designed to improve the segmentation accuracy by focusing on relevant features in the MRI scans.![AR2B-UNet-1](https://github.com/nmn-pandey/brain-tumour-segmentation/assets/20767834/0bef9e31-ba8b-456c-ab8b-04dd92edf555)
-2. **AR2B-DeepSup-UNet**: An extension of the base model (AR2B-UNet) enhanced with Deep Supervision. Deep Supervision facilitates the training of deeper networks by addressing the vanishing gradient problem and improving feature learning at multiple levels.
-3. **Swin-AR2B-DeepSup-UNet**: This model integrates Swin Transformers into the UNet Encoder. The Swin Transformer is designed to capture global context more effectively, which is crucial for accurate segmentation in complex medical images like MRI scans.
+2. **AR2B-DeepSup-UNet**: An extension of the base model (AR2B-UNet) enhanced with Deep Supervision. Deep Supervision facilitates the training of deeper networks by addressing the vanishing gradient problem and improving feature learning at multiple levels.![AR2B-DeepSup-UNet-1](https://github.com/nmn-pandey/brain-tumour-segmentation/assets/20767834/a3704f28-0838-43f2-a9ec-a1d7e693a8b3)
+3. **Swin-AR2B-DeepSup-UNet**: This model integrates Swin Transformers into the UNet Encoder. The Swin Transformer is designed to capture global context more effectively, which is crucial for accurate segmentation in complex medical images like MRI scans.![Swin-AR2B-DeepSup-UNet-1](https://github.com/nmn-pandey/brain-tumour-segmentation/assets/20767834/ce26905f-3bb5-4f0e-b2f6-d0c9c97c9e14)
 
-**Evaluation:** Rigorous training and validation with a focus on the benefits of attention, deep supervision, and multi-objective loss.
-**Performance:** Achieved a high mean Dice score, indicating effective segmentation capabilities.
+**Key Architectural Blocks**
+The key architectural blocks used in these models include:
+1. Convolutional Block![Convolutional Blocks-1](https://github.com/nmn-pandey/brain-tumour-segmentation/assets/20767834/355e139c-48e3-4d2c-878c-2000984bc578)
+2. Attention Block![Attention Block-1](https://github.com/nmn-pandey/brain-tumour-segmentation/assets/20767834/3f39fbe1-1c48-47d6-9636-bc2371de0298)
+3. Feature Refinement Block![Feature Refinement Block-1](https://github.com/nmn-pandey/brain-tumour-segmentation/assets/20767834/61138f52-4f18-4819-83d5-0f13b58ed862)
+4. Swin Transformer Block![Swin Transformer Blocks-1](https://github.com/nmn-pandey/brain-tumour-segmentation/assets/20767834/b3543e81-d205-4771-8907-d60c4ac2d6e0)
+5. Max Pooling Layers
+6. Transpose Convolution Layers
+7. 3D Convolution Layers for Interpolation​​.
+
+**Evaluation:** Rigorous training and validation with a focus on the benefits of attention, deep supervision, and multi-objective loss. The performance of the three models, AR2B, AR2B-DeepSup, and Swin-AR2B-DeepSup, was evaluated based on several key metrics:
+1. Dice Coefficients
+2. Sensitivity
+3. Specificity
+4. Precision
+These metrics were computed for each tumor class during both training and validation phases. The highest mean Dice Coefficient achieved during these phases was used to select the best epoch for each model.
+
+**Performance:** 
+
+1. AR2B Model: Achieved a minimum training loss of 0.145 but displayed occasional spikes indicating potential training instability. It achieved a minimum validation loss of 0.472 at Epoch 350, which then increased, suggesting overfitting.
+2. AR2B-DeepSup Model: Maintained more stable training with fewer spikes and achieved minimum training losses of 0.330. During validation, this model surpassed the others, recording a mean Dice score of 0.795 at epoch 900.
+3. Swin-AR2B-DeepSup Model: Achieved minimum training losses of 0.533 and during validation reached a mean Dice score of 0.757 at epoch 950.
+
+![training and validation dice](https://github.com/nmn-pandey/brain-tumour-segmentation/assets/20767834/8aff2a91-e945-4717-810e-ecd732931011)
+
+The AR2B-DeepSup model achieved the highest overall performance across all evaluated metrics​
+
+**Qualitative Results:**
+1. **Accurate Predictions by All Models:** All models demonstrated high overlap with the ground truth segmentation in well-segmented cases, indicating accurate segmentation capabilities under certain conditions.![all](https://github.com/nmn-pandey/brain-tumour-segmentation/assets/20767834/e6806e5c-7199-4e29-a353-0c68be77cf3e)
+
+2. **Superior Performance of AR2B-DeepSup:** This model most closely matched the true tumor shape and outperformed the other two models, capturing intricate tumor morphology, especially for Tumor Class 1 – the NCR region.![ar2b_deepsup](https://github.com/nmn-pandey/brain-tumour-segmentation/assets/20767834/89c6e6ca-34c3-4323-88a1-45a2e1d9fe79)
+
+3. **Better Background Identification by Swin-AR2B-DeepSup:** In some cases, this model outperformed the others by better identifying the background region and more accurately predicting tumor boundaries.![swin](https://github.com/nmn-pandey/brain-tumour-segmentation/assets/20767834/38871506-0a11-41f8-92b0-255b3f1285c7)
+
+4. **Challenges in Poorly-Segmented Cases:** All models struggled in some cases, especially those with low contrast, failing to detect tumors or making false positive predictions, indicating room for performance improvement on challenging cases​​.![none](https://github.com/nmn-pandey/brain-tumour-segmentation/assets/20767834/35e461c6-d0ea-4376-b50d-fd3534a441cd)
+
+
 **Contributions:**
 This work contributes to the field of medical image analysis by demonstrating the effective integration of contemporary techniques in CNN architectures for brain tumor segmentation. It highlights the potential and limitations of these approaches, providing a foundation for future research and development in automated medical image segmentation.
 
-This README provides an overview of our dissertation project, "Enhancing Brain Tumor Segmentation in Multimodal MRI Scans," and serves as a guide for the attached source code. This folder contains project code, a sampled dataset, and related resources for a medical image segmentation project employing various deep learning models. Below, you'll find detailed information about the contents of the `src` folder, the structure of the `data` folder, and the `saved_models` folder.
+This README provides an overview of my dissertation project, "Enhancing Brain Tumor Segmentation in Multimodal MRI Scans," and serves as a guide for the attached source code. This folder contains project code, a sampled dataset, and related resources for a medical image segmentation project employing various deep learning models. Below, you'll find detailed information about the contents of the `src` folder, the structure of the `data` folder, and the `saved_models` folder.
 
 ## Contents of the `src` Folder
 
 ### Data Download and Preprocessing
 
-1. `00_data_download.py`: Downloads the BraTS 2023 training dataset using SynapseClient and extracts it to the `../input` folder.
+1. `00_data_download.py`: Downloads the BraTS 2023 training dataset using SynapseClient and extracts it to the `../input` folder. **Please edit the username and password with your credentials from the Synapse website to download the dataset.**
 
 2. `01_create_directories.py`: Creates the necessary directory structure for both the nnUNet framework and our custom models.
 
@@ -96,7 +131,7 @@ This organized structure effectively manages the training and test data for the 
 
 The `data` folder contains a total of 30 training records, including both images and masks, along with 8 records designated for validation and testing. These samples are preprocessed and formatted for training and evaluating the models.
 
-To download the raw dataset or if the dataset file is missing, please run the `00_data_download.py` script and follow the data preprocessing scripts sequentially.
+To download the raw dataset or if the dataset file is missing, please run the `00_data_download.py` script with your credentials and follow the data preprocessing scripts sequentially.
 
 ## Additional Details Regarding the Attached Zip File
 
