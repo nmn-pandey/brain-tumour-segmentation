@@ -39,7 +39,7 @@ These metrics were computed for each tumor class during both training and valida
 
 ![training and validation dice](https://github.com/nmn-pandey/brain-tumour-segmentation/assets/20767834/8aff2a91-e945-4717-810e-ecd732931011)
 
-### Model Performance Comparison
+**Table comparing the model performance**
 
 | Models | Dice Coefficient (1) | (2) | (3) | Mean | Sensitivity (1) | (2) | (3) | Mean | Specificity (1) | (2) | (3) | Mean |
 |--------|----------------------|-----|-----|------|-----------------|-----|-----|------|-----------------|-----|-----|------|
@@ -48,9 +48,7 @@ These metrics were computed for each tumor class during both training and valida
 | Swin-AR2B-DeepSup | 0.729     | 0.736 | 0.807 | 0.757 | 0.685         | 0.827 | 0.896 | 0.802 | 0.933         | 0.999 | 0.988 | 0.973 |
 | nnU-Netv2 | 0.756             | 0.861 | 0.850 | 0.822 | 0.763         | 0.893 | 0.926 | 0.873 | 1.000         | 0.999 | 1.000 | 1.000 |
 
-
-
-The AR2B-DeepSup model achieved the highest overall performance across all evaluated metrics​
+The AR2B-DeepSup model achieved the highest overall performance among our developed models across all evaluated metrics​, and even surpasses nnU-Netv2 performance for tumour class 1.
 
 ### Qualitative Results
 #### Accurate Predictions by All Models:
