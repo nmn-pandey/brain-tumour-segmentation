@@ -2,7 +2,7 @@
 
 This repository contains the code implementation of my Master's dissertation project at Brunel University London. The project focuses on developing advanced methods for automated segmentation of brain tumors from multimodal MRI scans by integrating modern mechanisms like Attention, Multi-Objective Losses and Swin Transformers into the traditional convolutional neural networks (CNNs) based U-Net architecture. Key challenges addressed include localizing indistinct tumor boundaries, handling class imbalances in medical datasets, and efficiently capturing global context. This work integrates attention mechanisms, multi-scale deep supervision, multi-objective loss functions, and Swin-Transformers into CNN-based architectures.
 
-## Key Features:
+In this README file, we provide an overview and explanation of the code and models developed for this project. However, for a comprehensive understanding of the methodologies, theories, and detailed analysis, we highly recommend referring to the accompanying dissertation report. The report offers in-depth insights and context that are essential for fully grasping the scope and implications of the work presented here.
 
 ### Dataset
 The Brain Tumor Segmentation (BraTS) 2023 dataset with T1, T1-contrasted, T2, and FLAIR MRI scans, including expert annotations for 1251 cases.
@@ -23,17 +23,13 @@ The key architectural blocks used in these models include:
 7. 3D Convolution Layers for Interpolation​​.
 
 ### Evaluation
-Rigorous training and validation with a focus on the benefits of attention, deep supervision, and multi-objective loss. The performance of the three models, AR2B, AR2B-DeepSup, and Swin-AR2B-DeepSup, was evaluated based on several key metrics:
-1. Dice Coefficients
-2. Sensitivity
-3. Specificity
-4. Precision
+Rigorous training and validation with a focus on the benefits of attention, deep supervision, and multi-objective loss, was performed. The performance of the three models, AR2B, AR2B-DeepSup, and Swin-AR2B-DeepSup, was evaluated based on several key metrics, including Accuracy, Loss, Dice Coefficients, Sensitivity, Specificity, and Precision.
 
 These metrics were computed for each tumor class during both training and validation phases. The highest mean Dice Coefficient achieved during these phases was used to select the best epoch for each model.
 
 ### Performance
 
-1. AR2B Model: Achieved a minimum training loss of 0.145 but displayed occasional spikes indicating potential training instability. It achieved a minimum validation loss of 0.472 at Epoch 350, which then increased, suggesting overfitting.
+1. AR2B Model: Achieved the minimum training loss of 0.145 but displayed occasional spikes indicating potential training instability. It achieved a maximum validation dice of 0.691 at Epoch 350, which then decreased and the training loss increased, suggesting overfitting.
 2. AR2B-DeepSup Model: Maintained more stable training with fewer spikes and achieved minimum training losses of 0.330. During validation, this model surpassed the others, recording a mean Dice score of 0.795 at epoch 900.
 3. Swin-AR2B-DeepSup Model: Achieved minimum training losses of 0.533 and during validation reached a mean Dice score of 0.757 at epoch 950.
 
@@ -44,7 +40,7 @@ These metrics were computed for each tumor class during both training and valida
 | Models | Dice Coefficient (1) | (2) | (3) | Mean | Sensitivity (1) | (2) | (3) | Mean | Specificity (1) | (2) | (3) | Mean |
 |--------|----------------------|-----|-----|------|-----------------|-----|-----|------|-----------------|-----|-----|------|
 | AR2B   | 0.650                | 0.653 | 0.768 | 0.691 | 0.582         | 0.842 | 0.824 | 0.749 | 0.999         | 0.972 | 0.995 | 0.989 |
-| AR2B-DeepSup | 0.770          | 0.770 | 0.843 | 0.795 | 0.800         | 0.843 | 0.911 | 0.851 | 0.997         | 0.987 | 0.998 | 0.994 |
+| AR2B-DeepSup | **0.770 **         | 0.770 | 0.843 | 0.795 | **0.800 **        | 0.843 | 0.911 | 0.851 | 0.997         | 0.987 | 0.998 | 0.994 |
 | Swin-AR2B-DeepSup | 0.729     | 0.736 | 0.807 | 0.757 | 0.685         | 0.827 | 0.896 | 0.802 | 0.933         | 0.999 | 0.988 | 0.973 |
 | nnU-Netv2 | 0.756             | 0.861 | 0.850 | 0.822 | 0.763         | 0.893 | 0.926 | 0.873 | 1.000         | 0.999 | 1.000 | 1.000 |
 
@@ -52,26 +48,34 @@ The AR2B-DeepSup model achieved the highest overall performance among our develo
 
 ### Qualitative Results
 #### Accurate Predictions by All Models:
-All models demonstrated high overlap with the ground truth segmentation in well-segmented cases, indicating accurate segmentation capabilities under certain conditions.![all](https://github.com/nmn-pandey/brain-tumour-segmentation/assets/20767834/e6806e5c-7199-4e29-a353-0c68be77cf3e)
+All models demonstrated high overlap with the ground truth segmentation in well-segmented cases, indicating accurate segmentation capabilities under certain conditions.
+
+![all](https://github.com/nmn-pandey/brain-tumour-segmentation/assets/20767834/e6806e5c-7199-4e29-a353-0c68be77cf3e)
 
 #### Superior Performance of AR2B-DeepSup:
 
-This model most closely matched the true tumor shape and outperformed the other two models, capturing intricate tumor morphology, especially for Tumor Class 1 – the NCR region.![ar2b_deepsup](https://github.com/nmn-pandey/brain-tumour-segmentation/assets/20767834/89c6e6ca-34c3-4323-88a1-45a2e1d9fe79)
+This model most closely matched the true tumor shape and outperformed the other two models, capturing intricate tumor morphology, especially for Tumor Class 1 – the NCR region.
 
-**Better Background Identification by Swin-AR2B-DeepSup:** 
+![ar2b_deepsup](https://github.com/nmn-pandey/brain-tumour-segmentation/assets/20767834/89c6e6ca-34c3-4323-88a1-45a2e1d9fe79)
 
-In some cases, this model outperformed the others by better identifying the background region and more accurately predicting tumor boundaries.![swin](https://github.com/nmn-pandey/brain-tumour-segmentation/assets/20767834/38871506-0a11-41f8-92b0-255b3f1285c7)
+#### Better Background Identification by Swin-AR2B-DeepSup:
 
-**Challenges in Poorly-Segmented Cases:** 
+In some cases, this model outperformed the others by better identifying the background region and more accurately predicting tumor boundaries.
 
-All models struggled in some cases, especially those with low contrast, failing to detect tumors or making false positive predictions, indicating room for performance improvement on challenging cases​​.![none](https://github.com/nmn-pandey/brain-tumour-segmentation/assets/20767834/35e461c6-d0ea-4376-b50d-fd3534a441cd)
+![swin](https://github.com/nmn-pandey/brain-tumour-segmentation/assets/20767834/38871506-0a11-41f8-92b0-255b3f1285c7)
+
+#### Challenges in Poorly-Segmented Cases:
+
+All models struggled in some cases, especially those with low contrast, failing to detect tumors or making false positive predictions, indicating room for performance improvement on challenging cases​​.
+
+![none](https://github.com/nmn-pandey/brain-tumour-segmentation/assets/20767834/35e461c6-d0ea-4376-b50d-fd3534a441cd)
 
 
 ### Contributions:
 This work contributes to the field of medical image analysis by demonstrating the effective integration of contemporary techniques in CNN architectures for brain tumor segmentation. It highlights the potential and limitations of these approaches, providing a foundation for future research and development in automated medical image segmentation.
 
-## README
-This README provides an overview of my dissertation project, "Enhancing Brain Tumor Segmentation in Multimodal MRI Scans," and serves as a guide for the attached source code. This folder contains project code, a sampled dataset, and related resources for a medical image segmentation project employing various deep learning models. Below, you'll find detailed information about the contents of the `src` folder, the structure of the `data` folder, and the `saved_models` folder.
+## HOW TO USE/UNDERSTAND THE CODE
+The below section provides an overview of my dissertation project, "Enhancing Brain Tumor Segmentation in Multimodal MRI Scans," and serves as a guide for the attached source code. This folder contains project code, a sampled dataset, and related resources for a medical image segmentation project employing various deep learning models. Below, you'll find detailed information about the contents of the `src` folder, the structure of the `data` folder, and the `saved_models` folder.
 
 ## Contents of the `src` Folder
 
