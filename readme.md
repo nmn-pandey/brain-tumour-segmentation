@@ -4,14 +4,15 @@ This repository contains the code implementation of my Master's dissertation pro
 
 ## Key Features:
 
-**Dataset:** The Brain Tumor Segmentation (BraTS) 2023 dataset with T1, T1-contrasted, T2, and FLAIR MRI scans, including expert annotations for 1251 cases.
+### Dataset
+The Brain Tumor Segmentation (BraTS) 2023 dataset with T1, T1-contrasted, T2, and FLAIR MRI scans, including expert annotations for 1251 cases.
 
-**Model Architectures:**
+### Model Architectures
 1. **AR2B-UNet**: A 3D UNet Model enhanced with Attention Blocks. This architecture is designed to improve the segmentation accuracy by focusing on relevant features in the MRI scans.![AR2B-UNet-1](https://github.com/nmn-pandey/brain-tumour-segmentation/assets/20767834/0bef9e31-ba8b-456c-ab8b-04dd92edf555)
 2. **AR2B-DeepSup-UNet**: An extension of the base model (AR2B-UNet) enhanced with Deep Supervision. Deep Supervision facilitates the training of deeper networks by addressing the vanishing gradient problem and improving feature learning at multiple levels.![AR2B-DeepSup-UNet-1](https://github.com/nmn-pandey/brain-tumour-segmentation/assets/20767834/a3704f28-0838-43f2-a9ec-a1d7e693a8b3)
 3. **Swin-AR2B-DeepSup-UNet**: This model integrates Swin Transformers into the UNet Encoder. The Swin Transformer is designed to capture global context more effectively, which is crucial for accurate segmentation in complex medical images like MRI scans.![Swin-AR2B-DeepSup-UNet-1](https://github.com/nmn-pandey/brain-tumour-segmentation/assets/20767834/ce26905f-3bb5-4f0e-b2f6-d0c9c97c9e14)
 
-**Key Architectural Blocks**
+### Key Architectural Blocks
 The key architectural blocks used in these models include:
 1. Convolutional Block![Convolutional Blocks-1](https://github.com/nmn-pandey/brain-tumour-segmentation/assets/20767834/355e139c-48e3-4d2c-878c-2000984bc578)
 2. Attention Block![Attention Block-1](https://github.com/nmn-pandey/brain-tumour-segmentation/assets/20767834/3f39fbe1-1c48-47d6-9636-bc2371de0298)
@@ -21,14 +22,16 @@ The key architectural blocks used in these models include:
 6. Transpose Convolution Layers
 7. 3D Convolution Layers for Interpolation​​.
 
-**Evaluation:** Rigorous training and validation with a focus on the benefits of attention, deep supervision, and multi-objective loss. The performance of the three models, AR2B, AR2B-DeepSup, and Swin-AR2B-DeepSup, was evaluated based on several key metrics:
+### Evaluation
+Rigorous training and validation with a focus on the benefits of attention, deep supervision, and multi-objective loss. The performance of the three models, AR2B, AR2B-DeepSup, and Swin-AR2B-DeepSup, was evaluated based on several key metrics:
 1. Dice Coefficients
 2. Sensitivity
 3. Specificity
 4. Precision
+
 These metrics were computed for each tumor class during both training and validation phases. The highest mean Dice Coefficient achieved during these phases was used to select the best epoch for each model.
 
-**Performance:** 
+### Performance
 
 1. AR2B Model: Achieved a minimum training loss of 0.145 but displayed occasional spikes indicating potential training instability. It achieved a minimum validation loss of 0.472 at Epoch 350, which then increased, suggesting overfitting.
 2. AR2B-DeepSup Model: Maintained more stable training with fewer spikes and achieved minimum training losses of 0.330. During validation, this model surpassed the others, recording a mean Dice score of 0.795 at epoch 900.
@@ -38,19 +41,28 @@ These metrics were computed for each tumor class during both training and valida
 
 The AR2B-DeepSup model achieved the highest overall performance across all evaluated metrics​
 
-**Qualitative Results:**
-1. **Accurate Predictions by All Models:** All models demonstrated high overlap with the ground truth segmentation in well-segmented cases, indicating accurate segmentation capabilities under certain conditions.![all](https://github.com/nmn-pandey/brain-tumour-segmentation/assets/20767834/e6806e5c-7199-4e29-a353-0c68be77cf3e)
+### Qualitative Results
+**Accurate Predictions by All Models:** 
 
-2. **Superior Performance of AR2B-DeepSup:** This model most closely matched the true tumor shape and outperformed the other two models, capturing intricate tumor morphology, especially for Tumor Class 1 – the NCR region.![ar2b_deepsup](https://github.com/nmn-pandey/brain-tumour-segmentation/assets/20767834/89c6e6ca-34c3-4323-88a1-45a2e1d9fe79)
+All models demonstrated high overlap with the ground truth segmentation in well-segmented cases, indicating accurate segmentation capabilities under certain conditions.![all](https://github.com/nmn-pandey/brain-tumour-segmentation/assets/20767834/e6806e5c-7199-4e29-a353-0c68be77cf3e)
 
-3. **Better Background Identification by Swin-AR2B-DeepSup:** In some cases, this model outperformed the others by better identifying the background region and more accurately predicting tumor boundaries.![swin](https://github.com/nmn-pandey/brain-tumour-segmentation/assets/20767834/38871506-0a11-41f8-92b0-255b3f1285c7)
+**Superior Performance of AR2B-DeepSup:** 
 
-4. **Challenges in Poorly-Segmented Cases:** All models struggled in some cases, especially those with low contrast, failing to detect tumors or making false positive predictions, indicating room for performance improvement on challenging cases​​.![none](https://github.com/nmn-pandey/brain-tumour-segmentation/assets/20767834/35e461c6-d0ea-4376-b50d-fd3534a441cd)
+This model most closely matched the true tumor shape and outperformed the other two models, capturing intricate tumor morphology, especially for Tumor Class 1 – the NCR region.![ar2b_deepsup](https://github.com/nmn-pandey/brain-tumour-segmentation/assets/20767834/89c6e6ca-34c3-4323-88a1-45a2e1d9fe79)
+
+**Better Background Identification by Swin-AR2B-DeepSup:** 
+
+In some cases, this model outperformed the others by better identifying the background region and more accurately predicting tumor boundaries.![swin](https://github.com/nmn-pandey/brain-tumour-segmentation/assets/20767834/38871506-0a11-41f8-92b0-255b3f1285c7)
+
+**Challenges in Poorly-Segmented Cases:** 
+
+All models struggled in some cases, especially those with low contrast, failing to detect tumors or making false positive predictions, indicating room for performance improvement on challenging cases​​.![none](https://github.com/nmn-pandey/brain-tumour-segmentation/assets/20767834/35e461c6-d0ea-4376-b50d-fd3534a441cd)
 
 
-**Contributions:**
+### Contributions:
 This work contributes to the field of medical image analysis by demonstrating the effective integration of contemporary techniques in CNN architectures for brain tumor segmentation. It highlights the potential and limitations of these approaches, providing a foundation for future research and development in automated medical image segmentation.
 
+## README
 This README provides an overview of my dissertation project, "Enhancing Brain Tumor Segmentation in Multimodal MRI Scans," and serves as a guide for the attached source code. This folder contains project code, a sampled dataset, and related resources for a medical image segmentation project employing various deep learning models. Below, you'll find detailed information about the contents of the `src` folder, the structure of the `data` folder, and the `saved_models` folder.
 
 ## Contents of the `src` Folder
