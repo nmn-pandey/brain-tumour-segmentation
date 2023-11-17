@@ -1,5 +1,21 @@
 # Brain Tumor Segmentation Project README
 
+This repository contains the code implementation of my Master's dissertation project at Brunel University London. The project focuses on developing advanced methods for automated segmentation of brain tumors from multimodal MRI scans by integrating modern mechanisms like Attention, Multi-Objective Losses and Swin Transformers into the traditional convolutional neural networks (CNNs) based U-Net architecture. Key challenges addressed include localizing indistinct tumor boundaries, handling class imbalances in medical datasets, and efficiently capturing global context. This work integrates attention mechanisms, multi-scale deep supervision, multi-objective loss functions, and Swin-Transformers into CNN-based architectures.
+
+## Key Features:
+
+**Dataset:** The Brain Tumor Segmentation (BraTS) 2023 dataset with T1, T1-contrasted, T2, and FLAIR MRI scans, including expert annotations for 1251 cases.
+
+**Model Architectures:**
+1. **AR2B-UNet**: 3D UNet model enhanced with attention blocks.
+2. **AR2B-DeepSup-UNet**: Base model with deep supervision.
+3. **Swin-AR2B-DeepSup-UNet**: Integrates Swin Transformers into the UNet encoder.
+
+**Evaluation:** Rigorous training and validation with a focus on the benefits of attention, deep supervision, and multi-objective loss.
+**Performance:** Achieved a high mean Dice score, indicating effective segmentation capabilities.
+**Contributions:**
+This work contributes to the field of medical image analysis by demonstrating the effective integration of contemporary techniques in CNN architectures for brain tumor segmentation. It highlights the potential and limitations of these approaches, providing a foundation for future research and development in automated medical image segmentation.
+
 This README provides an overview of our dissertation project, "Enhancing Brain Tumor Segmentation in Multimodal MRI Scans," and serves as a guide for the attached source code. This folder contains project code, a sampled dataset, and related resources for a medical image segmentation project employing various deep learning models. Below, you'll find detailed information about the contents of the `src` folder, the structure of the `data` folder, and the `saved_models` folder.
 
 ## Contents of the `src` Folder
