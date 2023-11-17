@@ -2,7 +2,7 @@
 
 This repository contains the code implementation of my Master's dissertation project at Brunel University London. The project focuses on developing advanced methods for automated segmentation of brain tumors from multimodal MRI scans by integrating modern mechanisms like Attention, Multi-Objective Losses and Swin Transformers into the traditional convolutional neural networks (CNNs) based U-Net architecture. Key challenges addressed include localizing indistinct tumor boundaries, handling class imbalances in medical datasets, and efficiently capturing global context. This work integrates attention mechanisms, multi-scale deep supervision, multi-objective loss functions, and Swin-Transformers into CNN-based architectures.
 
-In this README file, we provide an overview and explanation of the code and models developed for this project. However, for a comprehensive understanding of the methodologies, theories, and detailed analysis, we highly recommend referring to the accompanying dissertation report. The report offers in-depth insights and context that are essential for fully grasping the scope and implications of the work presented here.
+In this README file, we provide an overview and explanation of the code and models developed for this project. However, for a comprehensive understanding of the methodologies, theories, and detailed analysis, we highly recommend referring to the code overview section below and the comments in the code itself. If you require further help, please feel free to contact me. 
 
 ### Dataset
 The Brain Tumor Segmentation (BraTS) 2023 dataset with T1, T1-contrasted, T2, and FLAIR MRI scans, including expert annotations for 1251 cases.
@@ -13,14 +13,11 @@ The Brain Tumor Segmentation (BraTS) 2023 dataset with T1, T1-contrasted, T2, an
 3. **Swin-AR2B-DeepSup-UNet**: This model integrates Swin Transformers into the UNet Encoder. The Swin Transformer is designed to capture global context more effectively, which is crucial for accurate segmentation in complex medical images like MRI scans.![Swin-AR2B-DeepSup-UNet-1](https://github.com/nmn-pandey/brain-tumour-segmentation/assets/20767834/ce26905f-3bb5-4f0e-b2f6-d0c9c97c9e14)
 
 ### Key Architectural Blocks
-The key architectural blocks used in these models include:
-1. Convolutional Block![Convolutional Blocks-1](https://github.com/nmn-pandey/brain-tumour-segmentation/assets/20767834/355e139c-48e3-4d2c-878c-2000984bc578)
-2. Attention Block![Attention Block-1](https://github.com/nmn-pandey/brain-tumour-segmentation/assets/20767834/3f39fbe1-1c48-47d6-9636-bc2371de0298)
-3. Feature Refinement Block![Feature Refinement Block-1](https://github.com/nmn-pandey/brain-tumour-segmentation/assets/20767834/61138f52-4f18-4819-83d5-0f13b58ed862)
-4. Swin Transformer Block![Swin Transformer Blocks-1](https://github.com/nmn-pandey/brain-tumour-segmentation/assets/20767834/b3543e81-d205-4771-8907-d60c4ac2d6e0)
-5. Max Pooling Layers
-6. Transpose Convolution Layers
-7. 3D Convolution Layers for Interpolation​​.
+1. Convolutional, and Feature Refinement Blocks to extract hierarchical features from the input.
+2. Attention Blocks to focus on the relevant features before passing them on to the decoder.
+3. Swin Transformer Block for capturing global context.
+4. Max Pooling and Transpose Convolution Layers for downsampling and upsampling the feature maps, respectively.
+5. 3D Convolution Layers for Interpolation.
 
 ### Evaluation
 Rigorous training and validation with a focus on the benefits of attention, deep supervision, and multi-objective loss, was performed. The performance of the three models, AR2B, AR2B-DeepSup, and Swin-AR2B-DeepSup, was evaluated based on several key metrics, including Accuracy, Loss, Dice Coefficients, Sensitivity, Specificity, and Precision.
@@ -48,6 +45,7 @@ The AR2B-DeepSup model achieved the highest overall performance among our develo
 
 ### Qualitative Results
 #### Accurate Predictions by All Models:
+
 All models demonstrated high overlap with the ground truth segmentation in well-segmented cases, indicating accurate segmentation capabilities under certain conditions.
 
 ![all](https://github.com/nmn-pandey/brain-tumour-segmentation/assets/20767834/e6806e5c-7199-4e29-a353-0c68be77cf3e)
