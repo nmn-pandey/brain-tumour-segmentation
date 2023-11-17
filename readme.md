@@ -39,6 +39,18 @@ These metrics were computed for each tumor class during both training and valida
 
 ![training and validation dice](https://github.com/nmn-pandey/brain-tumour-segmentation/assets/20767834/8aff2a91-e945-4717-810e-ecd732931011)
 
+## Table 6.2: Impact of the Integrations on Validation Dice
+
+| Model                                       | Validation Dice Gain over AR2B |
+|---------------------------------------------|--------------------------------|
+| AR2B                                        | 0.691                          |
+| AR2B-DeepSup                                | 0.795                          |
+| Swin-AR2B-DeepSup + Swin Transformer Encoder| 0.757                          |
+| Incremental Integrations 3D UNet + Attention + Deep Supervision | -        |
+|                                             | + 0.104                        |
+|                                             | + 0.066                        |
+
+
 The AR2B-DeepSup model achieved the highest overall performance across all evaluated metrics​
 
 ### Qualitative Results
