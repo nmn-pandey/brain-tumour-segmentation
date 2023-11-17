@@ -42,11 +42,10 @@ These metrics were computed for each tumor class during both training and valida
 The AR2B-DeepSup model achieved the highest overall performance across all evaluated metrics​
 
 ### Qualitative Results
-**Accurate Predictions by All Models:** 
-
+#### Accurate Predictions by All Models:
 All models demonstrated high overlap with the ground truth segmentation in well-segmented cases, indicating accurate segmentation capabilities under certain conditions.![all](https://github.com/nmn-pandey/brain-tumour-segmentation/assets/20767834/e6806e5c-7199-4e29-a353-0c68be77cf3e)
 
-**Superior Performance of AR2B-DeepSup:** 
+#### Superior Performance of AR2B-DeepSup:
 
 This model most closely matched the true tumor shape and outperformed the other two models, capturing intricate tumor morphology, especially for Tumor Class 1 – the NCR region.![ar2b_deepsup](https://github.com/nmn-pandey/brain-tumour-segmentation/assets/20767834/89c6e6ca-34c3-4323-88a1-45a2e1d9fe79)
 
